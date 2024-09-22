@@ -40,4 +40,3 @@ export default function Index({ auth, chirps }) {
         </AuthenticatedLayout>
     );
 }
-//file created for frontend form by using breeze 

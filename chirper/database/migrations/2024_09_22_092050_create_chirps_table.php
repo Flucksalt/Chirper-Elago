@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('chirps', function (Blueprint $table) {
             $table->id();
-
-            //adding user id and and message to establish relationship between the chirp and user
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('message');
-            
             $table->timestamps();
 
         });
