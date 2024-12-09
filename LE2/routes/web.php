@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\MayorController;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -24,6 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store'])
+//->only(['index', 'store', 'update']) //add update for updating chirp 
+->only(['index', 'store', 'update', 'destroy']) //added for deleting
     ->middleware(['auth', 'verified']);
 require __DIR__.'/auth.php';
+
+//controllers for crud project
+Route::resource('games', GameController::class);
+Route::resource('mayors', MayorController::class);
